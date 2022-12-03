@@ -16,6 +16,10 @@ currentPlayer = 0
 attackHealth = 10
 defendHealth = 10
 
+
+# Get current player 
+
+
 while defendHealth > 0:
   turnNumber += 1
   attack = random.randint(1,6)

@@ -19,6 +19,7 @@ defendHealth = 10
 
 # Get current player 
 
+print(f"player {currentPlayer + 1}: {players[currentPlayer]}")
 
 while defendHealth > 0:
   turnNumber += 1
@@ -31,7 +32,7 @@ while defendHealth > 0:
   print(f"Defend: {defend} ")
   if attack > defend :
     print("Attack wins") 
-    defendHealth -= attack
+    defendHealth -= attack - defend
     if defendHealth < 1:
       print("You died! ")
     print(f"Defend health: {defendHealth} ")
@@ -40,7 +41,4 @@ while defendHealth > 0:
     print("Defend wins")
   else:
     print("Draw")
-  
-  
-  
-  
+    defendHealth -= 1

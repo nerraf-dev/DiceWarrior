@@ -15,9 +15,16 @@ class Player(Character):
     super().__init__(name, health, strength, defence)
     self.currentHealth = health
   charType = "player"
+  dice = [[1,6]]
 
 class Enemy(Character):
   def __init__(self, name, health, strength, defence):
     super().__init__(name, health, strength, defence)
     self.currentHealth = health
   charType = "enemy"
+  dice = [[1,5]]# SETUP Characters
+
+# Enemy(name, health, str, def)
+badGuy = Enemy("Pumpkin", 5, 0, 0)
+badGuy2 = Enemy("Fly", 5, 1, 0)
+enemies = [badGuy, badGuy2]

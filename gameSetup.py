@@ -1,3 +1,21 @@
+import os
+
+def clearConsole():
+    command = 'clear'
+    if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
+        command = 'cls'
+    os.system(command)
+
+
+diceTypes = {
+  "tetrahedron" : 4,
+  "cube": 6,
+  "Octahedron": 10,
+  "Pentagonal trapezohedron": 10,
+  "Dodecahedron": 12,
+  "Icosahedron": 20
+            }
+
 class Character:
   def __init__(self, name, health, strength, defence):
     self.name = name
@@ -14,17 +32,19 @@ class Player(Character):
   def __init__(self, name, health, strength, defence):
     super().__init__(name, health, strength, defence)
     self.currentHealth = health
+    self.dice = [[1,6]]# SETUP Characters
   charType = "player"
-  dice = [[1,6]]
+  
 
 class Enemy(Character):
-  def __init__(self, name, health, strength, defence):
+  def __init__(self, name, health, strength, defence, diceHigh):
     super().__init__(name, health, strength, defence)
     self.currentHealth = health
+    self.dice = [[1,diceHigh]]# SETUP Characters
   charType = "enemy"
-  dice = [[1,5]]# SETUP Characters
 
+# Enemy("Halloween Pumpkin in November", 5, 0, 0, 2)
 # Enemy(name, health, str, def)
-badGuy = Enemy("Pumpkin", 5, 0, 0)
-badGuy2 = Enemy("Fly", 5, 1, 0)
-enemies = [badGuy, badGuy2]
+# badGuy = Enemy("Pumpkin", 5, 0, 0)
+# badGuy2 = Enemy("Fly", 5, 1, 0)
+# enemies = [badGuy, badGuy2]

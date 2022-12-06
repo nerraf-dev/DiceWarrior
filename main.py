@@ -3,60 +3,32 @@
 # Enemies come in waves, each wave has n rounds
 # 
 
-from gameSetup import Player, Enemy
-import random, time
+from gameSetup import Player, Enemy, diceTypes, clearConsole
+import random, time, os, intro
 
+playerWin = False
 # SETUP Characters
 
-# Enemy(name, health, str, def)
-badGuy = Enemy("Halloween Pumpkin in November", 5, 0, 0)
-badGuy2 = Enemy("Fly", 5, 1, 0)
-enemies = [badGuy, badGuy2]
+# Enemy(name, health, str, def, diceHigh)
+badGuy = Enemy("Halloween Pumpkin in November", 5, 0, 0, 2)
+badGuy2 = Enemy("Fly", 5, 1, 0, 4)
+enemies = [badGuy, badGuy2, Enemy("Fly", 5, 1, 0, 4)]
 
-print("***ENEMIES IN PLAY:***")
-for enemy in enemies:
-  print(f"""
-*******
-Enemy:
-Name:   {enemy.name} 
-Health: {enemy.currentHealth}
-Str:    {enemy.strength}
-Def:    {enemy.defence}
-Dice:   {enemy.dice}
-******
-""")
+# *** INTRO ***
 
-print("Welcome Player. What should we call you? ")
-name = input()
+name = intro.intro()
 # do some validation here (no blanks, etc)
-# Player(name, health, str, def)
+# Player(name, health, str, def, )
 player = Player(name, 10, 1, 1)
+intro.part2(player)
 
-print(f"""Welcome {player.charType} {player.name}.
 
-You're about to fight. 
-You'll probably die, but you might not.
-Don't worry. 
-
-Your current health is {player.currentHealth}. If this hits zero...that's it.
-
-Your current strength is {player.strength}. This is how hard you hit...not great right now.
-
-Your defense is {player.defence}. This is your protection...you have...none. Oh.
-
-""")
-
-turnNumber = 0
-
-"""
-
-"""
-
-time.sleep(2)
-
+time.sleep(0.5)
 
 for enemy in enemies:
-  print(f"player {player.name} attacks {enemy.name}")
+  playerWin = False
+  turnNumber = 0
+  print(f"player {player.name} attacks {enemy.name}\n")
   while enemy.currentHealth > 0 and player.currentHealth > 0:
     turnNumber += 1
     
@@ -93,7 +65,13 @@ for enemy in enemies:
     print("Enemy WINS!")
   elif enemy.currentHealth < 1:
     print("Player WINS!")
+    playerWin = True
   else:
     print("Probably an error. Something else happened...check it out!")
 
   input("Next>>")
+if playerWin:
+  print("You won")
+else:
+  print("Game over!")
+print("Byeeee!")

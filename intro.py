@@ -51,11 +51,11 @@ introText = [
 
 
 def intro():
-  with open("intro.txt") as file:
-    for line in file:
-      line = line.replace("\n","")
-      line = line.replace("\n","***")
-      print(f"{line}")
+  # with open("intro.txt") as file:
+  #   for line in file:
+  #     line = line.replace("\n","")
+  #     line = line.replace("\n","***")
+  #     print(f"{line}")
       
   for item in range(0,len(introText)):
     print(f"""
@@ -153,7 +153,7 @@ def part2(player):
     
     {introText[item]}
     
-{"=" * 28}{item + 1}/{len(introText)}{"=" * 30}
+{"=" * 28}{item + 1}/{len(introText)+1}{"=" * 30}
 
                 -- Press ENTER to continue --
 
@@ -167,7 +167,7 @@ def part2(player):
    THE VOICE:
       \" - - FIGHT!!! -  - "
     
-{"=" * 28}{item + 1}/{len(introText)}{"=" * 30}
+{"=" * 28}{item + 1}/{len(introText)+1}{"=" * 30}
 
                 -- Press ENTER to continue --
   

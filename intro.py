@@ -15,6 +15,7 @@ introText = [
   """
   You hear a growl.
   Are you in a cave?
+  
   """,
   """
   You look down. The floor...isn't stone or rock.
@@ -28,28 +29,34 @@ introText = [
   """,
   """
   There is a faint glow under a few doors around the edge.
-
   A flicker of light fills your eyes.
-
   The gym returns to darkness.
   """,
   """
   There is a low hum floating through the air...
+
+  
   """,
   """
   A deep voice rumbles out...
+
+
   """,
   """
   THE VOICE: 
       \"Welcome Player. What should we call you?\"
-  
   You stutter...your mouth is dry...
-
   """,
 ]
 
 
 def intro():
+  with open("intro.txt") as file:
+    for line in file:
+      line = line.replace("\n","")
+      line = line.replace("\n","***")
+      print(f"{line}")
+      
   for item in range(0,len(introText)):
     print(f"""
 {"=" * 64}

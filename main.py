@@ -4,17 +4,12 @@
 # 
 
 from gameFunctions import fight
-from gameSetup import Player, Enemy, diceTypes, clearConsole
+from gameSetup import Player, Enemy, diceTypes, clearConsole, setupEnemies
 import random, time, os, intro
 
 playerWin = False
 # SETUP Characters
-
-# Enemy(name, health, str, def, diceHigh)
-badGuy = Enemy("Halloween Pumpkin in November", 5, 0, 0, 2)
-badGuy2 = Enemy("Fly", 5, 1, 0, 4)
-enemies = [badGuy, badGuy2, Enemy("Fly", 5, 1, 0, 4)]
-
+enemies = setupEnemies()
 # *** INTRO ***
 name = intro.intro()
 # do some validation here (no blanks, etc)

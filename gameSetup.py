@@ -43,8 +43,12 @@ class Enemy(Character):
     self.dice = [[1,diceHigh]]# SETUP Characters
   charType = "enemy"
 
+
+def setupEnemies():
+   
 # Enemy("Halloween Pumpkin in November", 5, 0, 0, 2)
 # Enemy(name, health, str, def)
-# badGuy = Enemy("Pumpkin", 5, 0, 0)
-# badGuy2 = Enemy("Fly", 5, 1, 0)
-# enemies = [badGuy, badGuy2]
+  pumpkin = Enemy("Pumpkin", 5, 0, 0, 4)
+  badGuy2 = Enemy("Fly", 5, 1, 0, 4)
+  enemies = [pumpkin, badGuy2, Enemy("Fly", 5, 1, 0, 4)]
+  return enemies

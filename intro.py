@@ -128,13 +128,13 @@ def part2(player):
   lights begin to flicker on and you see...
 
   """,
-    f"""
+    """
       a bunch of old Halloween Pumpkins in November.
 
 
       They're wilted, soft, and sad looking. 
     """,
-    f"""
+    """
       Do you have to 'fight' these?
 
       You step back...tap a pumpkin...it falls into a mush
